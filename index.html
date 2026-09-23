@@ -5,7 +5,7 @@
   <meta name="description" content="University of Arizona NROTC battalion announcements, upcoming events, and volunteer opportunities.">
   <title>The Battalion Board | Arizona NROTC</title>
   <link rel="icon" type="image/gif" href="assets/arizona-nrotc-crest.gif">
-  <link rel="stylesheet" href="styles.css"><script src="config.js" defer></script><script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css"><script src="config.js" defer></script><script src="week-5.js" defer></script><script src="app.js" defer></script>
 </head>
 <body>
   <header class="masthead"><a class="wordmark" href="./"><img class="unit-logo" src="assets/arizona-nrotc-crest.gif" alt="Arizona NROTC crest" width="742" height="960"><span>UNIVERSITY OF ARIZONA<small>NAVAL RESERVE OFFICERS TRAINING CORPS</small></span></a></header>
@@ -21,9 +21,25 @@
       </div><div class="frame-plaque">ARIZONA NROTC <span>✦</span> BATTALION NOTICE BOARD</div></div>
       <aside class="service marines"><img src="assets/usmc-ega.svg" alt="United States Marine Corps Eagle, Globe, and Anchor"><p>UNITED STATES<br><strong>MARINE CORPS</strong></p><span>SEMPER FIDELIS</span></aside>
     </div>
+    <div class="board-scene duty-scene">
+      <section class="wood-frame duty-board" aria-labelledby="duty-board-heading">
+        <div class="board-inner duty-inner">
+          <header class="duty-heading"><h2 id="duty-board-heading">Duty board</h2><p>POW 5 · September 20–26, 2026 · Local review</p></header>
+          <section class="board-section duty-section" aria-labelledby="field-day-heading">
+            <div class="section-heading"><h2 id="field-day-heading">Field Day</h2><span>03</span></div>
+            <div class="note roster-paper"><div class="table-scroll" role="region" aria-label="Field Day assignments" tabindex="0"><table id="field-day-table" class="roster-table"><caption>Field Day assignments</caption></table></div></div>
+          </section>
+          <section class="board-section duty-section" aria-labelledby="colors-heading">
+            <div class="section-heading"><h2 id="colors-heading">Colors Watchbill</h2><span>04</span></div>
+            <div class="note roster-paper"><div class="table-scroll" role="region" aria-label="Colors Watchbill assignments" tabindex="0"><table id="colors-table" class="roster-table"><caption>Colors Watchbill assignments</caption></table></div></div>
+          </section>
+        </div>
+        <div class="frame-plaque">ARIZONA NROTC <span>✦</span> WEEKLY DUTY ASSIGNMENTS</div>
+      </section>
+    </div>
     <div class="board-footer"><span>ONE BATTALION. TWO TRADITIONS.</span><button id="refresh-button">↻ Refresh board</button></div>
   </main>
-  <footer><span>UNIVERSITY OF ARIZONA NROTC</span><span>All event times are Tucson time (MST).</span></footer>
+  <footer><span>UNIVERSITY OF ARIZONA NROTC</span><span>All times are local to Tucson.</span></footer>
   <dialog id="notice-dialog"><button class="close-dialog" aria-label="Close notice">×</button><div id="notice-details"></div></dialog>
 </body>
 </html>
