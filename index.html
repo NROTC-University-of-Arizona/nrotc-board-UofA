@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="University of Arizona NROTC battalion announcements, upcoming events, and volunteer opportunities.">
+  <title>The Battalion Board | Arizona NROTC</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230d1925'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-size='25' fill='%23d0ad69'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css"><script src="config.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><a class="wordmark" href="./"><img class="university-logo" src="assets/arizona-block-a.svg" alt="University of Arizona Block A logo" width="52" height="48"><span>UNIVERSITY OF ARIZONA<small>NAVAL RESERVE OFFICERS TRAINING CORPS</small></span></a></header>
+  <main>
+    <div class="board-heading"><div class="eyebrow">TUCSON, ARIZONA <span>•</span> NAVY & MARINE CORPS</div><h1>The Battalion Board</h1><p>Your next mission starts here.</p></div>
+    <div class="status-bar"><span id="board-status">PUBLIC BOARD · SAMPLE NOTICES</span><span id="today"></span></div>
+    <div class="board-scene">
+      <aside class="service navy"><img src="assets/navy-emblem.svg" alt="United States Navy emblem"><p>UNITED STATES<br><strong>NAVY</strong></p><span>HONOR · COURAGE · COMMITMENT</span></aside>
+      <div class="wood-frame"><div class="board-inner">
+        <section class="board-section events"><div class="section-heading"><h2>Upcoming events</h2><span id="event-count"></span></div><div id="events" class="notes"></div></section>
+        <section class="board-section volunteering"><div class="section-heading"><h2>Volunteering</h2><span id="volunteer-count"></span></div><div id="volunteering" class="notes"></div></section>
+        <section class="board-section announcements"><div class="section-heading"><h2>Announcements</h2><span id="announcement-count"></span></div><div id="announcements" class="announcement-notes"></div></section>
+      </div><div class="frame-plaque">ARIZONA NROTC <span>✦</span> BATTALION NOTICE BOARD</div></div>
+      <aside class="service marines"><img src="assets/usmc-ega.svg" alt="United States Marine Corps Eagle, Globe, and Anchor"><p>UNITED STATES<br><strong>MARINE CORPS</strong></p><span>SEMPER FIDELIS</span></aside>
+    </div>
+    <div class="board-footer"><span>ONE BATTALION. TWO TRADITIONS.</span><button id="refresh-button">↻ Refresh board</button></div>
+  </main>
+  <footer><span>UNIVERSITY OF ARIZONA NROTC</span><span>All event times are Tucson time (MST).</span></footer>
+  <dialog id="notice-dialog"><button class="close-dialog" aria-label="Close notice">×</button><div id="notice-details"></div></dialog>
+</body>
+</html>
