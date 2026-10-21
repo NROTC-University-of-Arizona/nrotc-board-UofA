@@ -40,6 +40,12 @@ window.SITE_CONTENT = {
         "imageAlt": "Club members carrying packs on a desert trail surrounded by saguaros."
       }
     ]
+  },
+  {
+    "id": "spec-war",
+    "name": "Spec War Club",
+    "description": "",
+    "posts": []
   }
 ]
   // Example club: { id: 'example-club', name: 'Club name', description: 'About the club',
