@@ -13,7 +13,35 @@ window.SITE_CONTENT = {
   //   powUrl: 'documents/pow-2026-10-19.pdf', bulletinUrl: 'documents/bulletin-2026-10-19.pdf' }
   // Use the ID of the week to display first; an empty value selects the newest entry.
   featuredWeekId: '2026-10-18',
-  clubs: []
+  clubs: [
+  {
+    "id": "semper-fi",
+    "name": "Semper Fi Club",
+    "description": "Photos from the club.",
+    "posts": [
+      {
+        "title": "Together on the trail",
+        "imageUrl": "assets/clubs/semper-fi/img_3699.jpeg",
+        "imageAlt": "Semper Fi Club group posing among desert cacti."
+      },
+      {
+        "title": "At the overlook",
+        "imageUrl": "assets/clubs/semper-fi/img_3679.jpeg",
+        "imageAlt": "Semper Fi Club group at a mountain overlook with the city behind them."
+      },
+      {
+        "title": "On the move",
+        "imageUrl": "assets/clubs/semper-fi/img_3693.jpeg",
+        "imageAlt": "Club members carrying packs along a hillside road."
+      },
+      {
+        "title": "Desert ruck",
+        "imageUrl": "assets/clubs/semper-fi/img_3697.jpeg",
+        "imageAlt": "Club members carrying packs on a desert trail surrounded by saguaros."
+      }
+    ]
+  }
+]
   // Example club: { id: 'example-club', name: 'Club name', description: 'About the club',
   //   posts: [{ title: 'Event title', date: '2026-10-23', time: '1600',
   //     location: 'Meeting location', body: 'Event details',
