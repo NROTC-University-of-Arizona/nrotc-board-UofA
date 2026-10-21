@@ -1,6 +1,19 @@
 // Public content only. Paths are relative to this file's folder on GitHub Pages.
 // Keep previous weeks here so readers can select older PDFs.
 window.SITE_CONTENT = {
+  // Update this timestamp when published website content changes, never on each visit.
+  lastUpdatedAt: '2026-10-21T19:22:46+00:00',
+  urgentUpdates: [],
+  // Updates use { title, body, postedAt, expiresAt } with explicit timezone offsets.
+  quickLinks: [
+    { label: 'Recall Roster', url: 'https://docs.google.com/spreadsheets/d/1moq47yG8-bDB-K5VUZ0MWc-25F7KwL2fDt2iDZkI1VQ/edit?gid=2104749652#gid=2104749652' },
+    { label: 'Plan of the Week', url: '#pow-section' },
+    { label: 'Weekly bulletin', url: '#weekly-bulletin' },
+    { label: 'Semper Fi Club', url: 'clubs.html#club-semper-fi' },
+    { label: 'Spec War Club', url: 'clubs.html#club-spec-war' }
+  ],
+  // Feedback is collected through the linked Google Form.
+  feedbackFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScSVx4asIgXIUOtr2Dn0xjIAz7ViJmSeSv6hYk-5E_SsQ2rAA/viewform?usp=publish-editor', 
   weeks: [
     {
       id: '2026-10-11',

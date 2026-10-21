@@ -116,3 +116,11 @@ The homepage and Club Spaces now use a browser-only login gate. `login.html`, `l
 Emails are trimmed and compared in lowercase. The shared password is case-sensitive. Successful login uses sessionStorage for the tab; Log out clears it. Browser session restore or tab duplication may retain/copy sessionStorage according to browser behavior. This is not a verified identity system: hashes, JavaScript, PDFs, and photos remain publicly accessible, and visitors can bypass the gate.
 
 To replace access credentials, regenerate auth-config.js hashes using SHA-256 of `nrotc-email:` followed by each normalized email and `nrotc-password:` followed by the exact shared password. Increment the config version when changing access so existing sessions must sign in again. Never put the roster or plaintext password in the repository. Preview using localhost or HTTPS, which provide the Web Crypto API.
+
+## Battalion support board
+
+The homepage includes last-minute updates, quick links, feedback, and a last-updated time. Configure them in `site-content.js` and include `support-board.js` when publishing. Keep `lastUpdatedAt` equal to the actual content update time (ISO timestamp with offset); update it whenever publishing content changes. The displayed time uses Tucson time in four-digit military format without a timezone suffix.
+
+Add notices to `urgentUpdates` with `title`, `body`, `postedAt`, and optional `expiresAt`. Use ISO timestamps with offsets. Future and expired notices are hidden; active notices appear newest first. Leaving the array empty shows an honest no-updates message. `quickLinks` contains labels and local or HTTPS URLs.
+
+Set `feedbackFormUrl` to the Google Form's HTTPS respondent link. The feedback button opens the form in a new tab; visitors submit reports through Google Forms. The website does not collect or store their answers. Form access and response settings are managed by the form owner in Google Forms.

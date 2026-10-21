@@ -93,3 +93,19 @@
 #login-submit:disabled{opacity:.6;cursor:wait}
 .login-help{margin-top:22px;font-size:12px}
 @media(max-width:480px){.login-panel{padding:24px 20px}.login-panel h1{font-size:28px}}
+
+.support-board{margin-top:32px;scroll-margin-top:20px}
+.support-heading{grid-column:1/-1;padding:24px 22px 0}
+.support-heading h2{font-family:'Libre Baskerville',Georgia,serif;font-weight:400;margin:0 0 10px;color:#e0d4b7}
+.support-heading p{color:#bcb099;font-size:12px;line-height:1.6}
+.feedback-section{grid-column:1/-1;border-top:5px ridge #694c35}
+.quick-link-list{display:grid;gap:0}
+.quick-link{display:block;padding:14px 0;color:#3c3a31;text-decoration:none;border-bottom:1px solid #8e826a55;font-weight:600;font-size:14px}
+.quick-link:last-child{border-bottom:0}.quick-link:hover{text-decoration:underline}
+.feedback-paper{transform:none}
+.update-body{white-space:pre-wrap;overflow-wrap:anywhere}.note .update-posted{font-size:12px}
+
+.feedback-link:not([hidden]){display:inline-block;margin:12px 0;padding:12px 18px;background:#173044;color:#f5ecd8;border-radius:3px;text-decoration:none;font-weight:600}
+.feedback-link:hover{text-decoration:underline}
+.feedback-link:focus-visible{outline:3px solid #78562c;outline-offset:3px}
+@media(max-width:650px){.support-inner{grid-template-columns:1fr}.support-heading{padding:20px 18px 0}}

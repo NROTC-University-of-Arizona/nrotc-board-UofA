@@ -7,11 +7,11 @@
   <meta name="description" content="University of Arizona NROTC battalion announcements, upcoming events, and volunteer opportunities.">
   <title>The Battalion Board | Arizona NROTC</title>
   <link rel="icon" type="image/gif" href="assets/arizona-nrotc-crest.gif">
-  <link rel="stylesheet" href="styles.css"><script src="site-content.js" defer></script><script src="resources.js" defer></script>
+  <link rel="stylesheet" href="styles.css"><script src="site-content.js" defer></script><script src="resources.js" defer></script><script src="support-board.js" defer></script>
 </head>
 <body>
   <header class="masthead"><a class="wordmark" href="./"><img class="unit-logo" src="assets/arizona-nrotc-crest.gif" alt="Arizona NROTC crest" width="742" height="960"><span>UNIVERSITY OF ARIZONA<small>NAVAL RESERVE OFFICERS TRAINING CORPS</small></span></a></header>
-  <nav class="site-nav" aria-label="Main navigation"><a href="#pow-section">Plan of the Week</a><a href="#weekly-bulletin">Weekly bulletin</a><a href="clubs.html">Club spaces ↗</a><button type="button" class="logout-button" data-logout>Log out</button></nav>
+  <nav class="site-nav" aria-label="Main navigation"><a href="#pow-section">Plan of the Week</a><a href="#weekly-bulletin">Weekly bulletin</a><a href="#support-board">Battalion updates</a><a href="clubs.html">Club spaces ↗</a><button type="button" class="logout-button" data-logout>Log out</button></nav>
   <main class="emblem-layout">
     <aside class="page-emblem page-emblem-navy"><img src="assets/navy-emblem.svg" alt="United States Navy emblem" width="160" height="160"></aside>
     <section class="resource-hub" aria-labelledby="pow-heading" id="pow-section">
@@ -21,6 +21,22 @@
         <section id="weekly-bulletin" class="resource-card"><p class="eyebrow">FROM THE BATTALION</p><h2>Weekly bulletin</h2><div id="bulletin-document"><p>No bulletin PDF has been added yet.</p></div></section>
         <section class="resource-card"><p class="eyebrow">FIND YOUR COMMUNITY</p><h2>Club spaces</h2><p>Explore club events, pictures, and notices.</p><a class="resource-button" href="clubs.html">Visit club boards ↗</a></section>
       </div>
+      <section id="support-board" class="wood-frame support-board" aria-labelledby="support-heading">
+        <div class="board-inner support-inner">
+          <header class="support-heading"><h2 id="support-heading">Battalion updates</h2><p>Last updated: <time id="site-last-updated">Not available</time></p></header>
+          <section class="board-section"><div class="section-heading"><h2>Last-minute updates</h2></div><div id="urgent-updates" class="notes"></div></section>
+          <section class="board-section"><div class="section-heading"><h2>Quick links</h2></div><div id="quick-links" class="note quick-link-list"></div></section>
+          <section class="board-section feedback-section">
+            <div class="section-heading"><h2>Feedback &amp; corrections</h2></div>
+            <div class="note feedback-paper">
+              <p>Found outdated information or have an idea for the website? Let us know.</p>
+              <a id="feedback-link" class="feedback-link" target="_blank" rel="noopener noreferrer" hidden>Open feedback form ↗</a>
+              <p id="feedback-help">Opens Google Forms in a new tab. Complete and submit your report there.</p>
+            </div>
+          </section>
+        </div>
+        <div class="frame-plaque">ARIZONA NROTC <span>✦</span> BATTALION SUPPORT BOARD</div>
+      </section>
     </section>
     <aside class="page-emblem page-emblem-marines"><img src="assets/usmc-ega.svg" alt="United States Marine Corps Eagle, Globe, and Anchor" width="160" height="160"></aside>
   </main>
