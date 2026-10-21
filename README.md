@@ -108,3 +108,11 @@ A future OpenClaw integration can update notice content through authorized GitHu
 ## License and artwork
 
 No project-wide software license has been selected yet. Public repository visibility is not a software license. University and military logos are third-party marks; this project does not grant rights to those marks. See `assets/SOURCES.md` for the currently recorded asset information.
+
+## Local login gate
+
+The homepage and Club Spaces now use a browser-only login gate. `login.html`, `login.js`, `auth.js`, and `auth-config.js` must accompany the pages when this change is eventually published. The allowlist contains hashes for the 82 unique addresses in the FALL 2026 Contact Info worksheet only. The source workbook and plaintext credentials are not part of the website.
+
+Emails are trimmed and compared in lowercase. The shared password is case-sensitive. Successful login uses sessionStorage for the tab; Log out clears it. Browser session restore or tab duplication may retain/copy sessionStorage according to browser behavior. This is not a verified identity system: hashes, JavaScript, PDFs, and photos remain publicly accessible, and visitors can bypass the gate.
+
+To replace access credentials, regenerate auth-config.js hashes using SHA-256 of `nrotc-email:` followed by each normalized email and `nrotc-password:` followed by the exact shared password. Increment the config version when changing access so existing sessions must sign in again. Never put the roster or plaintext password in the repository. Preview using localhost or HTTPS, which provide the Web Crypto API.

@@ -2,6 +2,7 @@
 
 // One renderer serves the document hub and club page without requiring a backend.
 (() => {
+  if (!window.BoardAuth?.isSignedIn()) return;
   const content = window.SITE_CONTENT;
   function node(tag, className, text) {
     const result = document.createElement(tag);

@@ -1,6 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-login-required>
 <head>
+  <style>html[data-login-required]:not([data-authenticated]) body{display:none}</style>
+  <script src="auth-config.js"></script><script src="auth.js"></script>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="University of Arizona NROTC battalion announcements, upcoming events, and volunteer opportunities.">
   <title>The Battalion Board | Arizona NROTC</title>
@@ -9,7 +11,7 @@
 </head>
 <body>
   <header class="masthead"><a class="wordmark" href="./"><img class="unit-logo" src="assets/arizona-nrotc-crest.gif" alt="Arizona NROTC crest" width="742" height="960"><span>UNIVERSITY OF ARIZONA<small>NAVAL RESERVE OFFICERS TRAINING CORPS</small></span></a></header>
-  <nav class="site-nav" aria-label="Main navigation"><a href="#pow-section">Plan of the Week</a><a href="#weekly-bulletin">Weekly bulletin</a><a href="clubs.html">Club spaces ↗</a></nav>
+  <nav class="site-nav" aria-label="Main navigation"><a href="#pow-section">Plan of the Week</a><a href="#weekly-bulletin">Weekly bulletin</a><a href="clubs.html">Club spaces ↗</a><button type="button" class="logout-button" data-logout>Log out</button></nav>
   <main class="emblem-layout">
     <aside class="page-emblem page-emblem-navy"><img src="assets/navy-emblem.svg" alt="United States Navy emblem" width="160" height="160"></aside>
     <section class="resource-hub" aria-labelledby="pow-heading" id="pow-section">

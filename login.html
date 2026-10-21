@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Battalion Sign In | Arizona NROTC</title>
+  <link rel="icon" type="image/gif" href="assets/arizona-nrotc-crest.gif">
+  <link rel="stylesheet" href="styles.css">
+  <script src="auth-config.js" defer></script><script src="auth.js" defer></script><script src="login.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><a class="wordmark" href="./"><img class="unit-logo" src="assets/arizona-nrotc-crest.gif" alt="Arizona NROTC crest" width="742" height="960"><span>UNIVERSITY OF ARIZONA<small>NAVAL RESERVE OFFICERS TRAINING CORPS</small></span></a></header>
+  <main class="login-shell">
+    <section class="login-panel" aria-labelledby="login-heading">
+      <p class="eyebrow">ARIZONA NROTC</p><h1 id="login-heading">Battalion sign in</h1>
+      <p class="login-intro">Enter your approved email and the battalion password.</p>
+      <form id="login-form">
+        <label for="login-email">Email address</label>
+        <input id="login-email" name="email" type="email" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        <label for="login-password">Password</label>
+        <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+        <label class="show-password"><input id="show-password" type="checkbox"> Show password</label>
+        <p id="login-message" class="login-message" role="alert" aria-live="polite"></p>
+        <button id="login-submit" type="submit">Sign in</button>
+      </form>
+      <p class="login-help">Need access? Contact your battalion website administrator.</p>
+      <noscript>JavaScript is required to sign in.</noscript>
+    </section>
+  </main>
+</body>
+</html>

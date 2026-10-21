@@ -3,6 +3,12 @@
 window.SITE_CONTENT = {
   weeks: [
     {
+      id: '2026-10-11',
+      label: 'POW 8 · October 11–17, 2026',
+      powUrl: 'documents/pow-8.pdf',
+      bulletinUrl: 'https://docs.google.com/document/d/1YS1rmJXDqIFLr2IxROJ9zJuVc-Afidoo2eRobpgz08k/edit?usp=sharing'
+    },
+    {
       id: '2026-10-18',
       label: 'POW 9 · October 18–24, 2026',
       powUrl: 'documents/pow-9.pdf',

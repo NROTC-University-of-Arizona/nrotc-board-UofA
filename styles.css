@@ -74,3 +74,22 @@
   .page-emblem-marines img{margin-left:auto}
   .emblem-layout>.resource-hub{grid-row:2;grid-column:1/-1}
 }
+
+/* Login and navigation controls use the site's existing colors and type. */
+.logout-button{font:inherit;font-size:14px;color:var(--gold);border:0;background:transparent;padding:0;cursor:pointer}
+.logout-button:hover{text-decoration:underline}
+.login-shell{min-height:75vh;display:grid;place-items:center;padding:36px 20px}
+.login-panel{width:100%;max-width:460px;padding:32px;border:1px solid #d7b77766;border-radius:5px;background:#14212c;box-shadow:0 20px 55px #0005}
+.login-panel h1{font-size:32px;letter-spacing:-1px}
+.login-intro,.login-help{color:#b9c1c8;line-height:1.6;font-size:14px}
+#login-form{display:grid;gap:10px;margin-top:26px}
+#login-form>label{font-size:14px;color:#e5dcc9}
+#login-form>input{width:100%;min-width:0;padding:12px;font:inherit;color:#f4eee3;background:#0a1420;border:1px solid #7e8a94;border-radius:3px;margin-bottom:8px}
+#login-form input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.show-password{display:flex;align-items:center;gap:8px}
+.show-password input{width:18px;height:18px;accent-color:var(--gold)}
+.login-message{min-height:22px;margin:4px 0;color:#ffbeb4;font-size:14px}
+#login-submit{padding:13px;font:inherit;font-weight:700;background:var(--gold);color:#14212c;border:0;border-radius:3px}
+#login-submit:disabled{opacity:.6;cursor:wait}
+.login-help{margin-top:22px;font-size:12px}
+@media(max-width:480px){.login-panel{padding:24px 20px}.login-panel h1{font-size:28px}}
