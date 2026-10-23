@@ -124,3 +124,11 @@ The homepage includes last-minute updates, quick links, feedback, and a last-upd
 Add notices to `urgentUpdates` with `title`, `body`, `postedAt`, and optional `expiresAt`. Use ISO timestamps with offsets. Future and expired notices are hidden; active notices appear newest first. Leaving the array empty shows an honest no-updates message. `quickLinks` contains labels and local or HTTPS URLs.
 
 Set `feedbackFormUrl` to the Google Form's HTTPS respondent link. The feedback button opens the form in a new tab; visitors submit reports through Google Forms. The website does not collect or store their answers. Form access and response settings are managed by the form owner in Google Forms.
+
+## Scrolling POW preview
+
+`pdf-preview.js` uses locally bundled PDF.js 6.4.299 to render the POW as vertically stacked pages. Pages render near the viewport and resize to fit the available width. Selecting another week cancels pending rendering and destroys the previous PDF worker. The original PDF button remains available for text selection, accessibility, zoom, and downloads.
+
+When publishing this feature, include `pdf-preview.js` and the complete `assets/vendor/pdfjs/` directory alongside the updated frontend files. No CDN or build step is required. The vendor directory includes the matching library/worker, font and decoding resources, version record, and license. Keep these resources on the same version when upgrading PDF.js.
+
+Preview via an HTTP server rather than opening HTML directly from disk. Check all pages of each POW at mobile and desktop widths, week switching, rotation, and the original PDF link. Confirm touch scrolling on a physical phone before publishing.

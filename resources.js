@@ -29,7 +29,10 @@
     return link;
   }
 
+  let disposePdfPreview = () => {};
+
   function renderDocument(container, path, title, embed) {
+    if (embed) disposePdfPreview();
     container.replaceChildren();
     const url = contentUrl(path);
     if (!url) {
@@ -38,11 +41,18 @@
     }
     container.append(documentLink(url, `Open ${title} ↗`));
     if (embed) {
-      const frame = node('iframe', 'pdf-viewer');
-      frame.src = url;
-      frame.title = title;
-      container.append(frame);
-      container.append(node('p', 'document-help', 'If the preview does not display on your device, use the Open PDF link above.'));
+      const preview = node('div', 'pdf-viewer');
+      container.append(preview);
+      let disposed = false;
+      let destroyViewer = () => {};
+      disposePdfPreview = () => { disposed = true; destroyViewer(); };
+      preview.textContent = 'Loading PDF…';
+      import('./pdf-preview.js').then(({ mountPdfPreview }) => {
+        if (!disposed) destroyViewer = mountPdfPreview(preview, url);
+      }).catch(() => {
+        if (!disposed) preview.textContent = 'Preview unavailable. Use Open POW PDF above to read the document.';
+      });
+      container.append(node('p', 'document-help', 'Scroll down to read every page. For zoom, text selection, or download, use Open POW PDF above.'));
     }
   }
 
@@ -62,7 +72,7 @@
       const displayWeek = () => {
         const week = weeks.find(entry => entry.id === weekSelect.value);
         renderDocument(document.getElementById('pow-document'), week.powUrl, 'POW PDF', true);
-        renderDocument(document.getElementById('bulletin-document'), week.bulletinUrl, 'weekly bulletin', false);
+        renderDocument(document.getElementById('bulletin-document'), week.bulletinUrl, 'Weekly Bulletin', false);
       };
       weekSelect.addEventListener('change', displayWeek);
       displayWeek();
