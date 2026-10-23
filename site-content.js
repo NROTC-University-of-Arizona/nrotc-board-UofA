@@ -8,7 +8,7 @@ window.SITE_CONTENT = {
   quickLinks: [
     { label: 'Recall Roster', url: 'https://docs.google.com/spreadsheets/d/1moq47yG8-bDB-K5VUZ0MWc-25F7KwL2fDt2iDZkI1VQ/edit?gid=2104749652#gid=2104749652' },
     { label: 'Plan of the Week', url: '#pow-section' },
-    { label: 'Weekly bulletin', url: '#weekly-bulletin' },
+    { label: 'Weekly Bulletin', url: '#weekly-bulletin' },
     { label: 'Semper Fi Club', url: 'clubs.html#club-semper-fi' },
     { label: 'Spec War Club', url: 'clubs.html#club-spec-war' }
   ],

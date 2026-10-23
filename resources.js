@@ -29,7 +29,12 @@
     return link;
   }
 
+  let disposePdfPreview = () => {};
+  // Touch-first devices avoid native PDF embeds, which may show only page one.
+  const scrollingPdfLayout = window.matchMedia('(max-width: 760px), (hover: none) and (pointer: coarse)');
+
   function renderDocument(container, path, title, embed) {
+    if (embed) disposePdfPreview();
     container.replaceChildren();
     const url = contentUrl(path);
     if (!url) {
@@ -37,12 +42,27 @@
       return;
     }
     container.append(documentLink(url, `Open ${title} ↗`));
-    if (embed) {
-      const frame = node('iframe', 'pdf-viewer');
+    if (embed && !scrollingPdfLayout.matches && navigator.pdfViewerEnabled !== false) {
+      const frame = node('iframe', 'pow-native-viewer');
       frame.src = url;
       frame.title = title;
+      // Keep the native viewer bounded even if an older stylesheet is cached.
+      Object.assign(frame.style, { display: 'block', width: '100%', height: '75vh', minHeight: '380px', border: '0', marginTop: '16px' });
       container.append(frame);
-      container.append(node('p', 'document-help', 'If the preview does not display on your device, use the Open PDF link above.'));
+      container.append(node('p', 'document-help', 'Use the PDF toolbar to change pages, zoom, print, or download. You can also open the PDF above.'));
+    } else if (embed) {
+      const preview = node('div', 'pow-page-preview');
+      container.append(preview);
+      let disposed = false;
+      let destroyViewer = () => {};
+      disposePdfPreview = () => { disposed = true; destroyViewer(); };
+      preview.textContent = 'Loading PDF…';
+      import('./pdf-preview.js?v=2').then(({ mountPdfPreview }) => {
+        if (!disposed) destroyViewer = mountPdfPreview(preview, url);
+      }).catch(() => {
+        if (!disposed) preview.textContent = 'Preview unavailable. Use Open POW PDF above to read the document.';
+      });
+      container.append(node('p', 'document-help', 'Scroll down to read every page. For zoom, text selection, or download, use Open POW PDF above.'));
     }
   }
 
@@ -62,9 +82,10 @@
       const displayWeek = () => {
         const week = weeks.find(entry => entry.id === weekSelect.value);
         renderDocument(document.getElementById('pow-document'), week.powUrl, 'POW PDF', true);
-        renderDocument(document.getElementById('bulletin-document'), week.bulletinUrl, 'weekly bulletin', false);
+        renderDocument(document.getElementById('bulletin-document'), week.bulletinUrl, 'Weekly Bulletin', false);
       };
       weekSelect.addEventListener('change', displayWeek);
+      scrollingPdfLayout.addEventListener('change', displayWeek);
       displayWeek();
     }
   }
