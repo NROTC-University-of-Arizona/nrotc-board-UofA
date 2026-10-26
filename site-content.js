@@ -2,7 +2,7 @@
 // Keep previous weeks here so readers can select older PDFs.
 window.SITE_CONTENT = {
   // Update this timestamp when published website content changes, never on each visit.
-  lastUpdatedAt: '2026-10-21T19:22:46+00:00',
+  lastUpdatedAt: '2026-10-26T20:24:00+00:00',
   urgentUpdates: [],
   // Updates use { title, body, postedAt, expiresAt } with explicit timezone offsets.
   quickLinks: [
@@ -15,6 +15,12 @@ window.SITE_CONTENT = {
   // Feedback is collected through the linked Google Form.
   feedbackFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScSVx4asIgXIUOtr2Dn0xjIAz7ViJmSeSv6hYk-5E_SsQ2rAA/viewform?usp=publish-editor', 
   weeks: [
+    {
+      id: '2026-10-25',
+      label: 'POW 10 · October 25–31, 2026',
+      powUrl: 'documents/pow-2026-10-25.pdf',
+      bulletinUrl: 'https://docs.google.com/document/d/1AiHiwlf3jOCOGjx7nE92hWKIOsCIBxa97rZZ1was68g/edit?usp=sharing'
+    },
     {
       id: '2026-10-11',
       label: 'POW 8 · October 11–17, 2026',
@@ -31,7 +37,7 @@ window.SITE_CONTENT = {
   // Example week: { id: '2026-10-19', label: 'October 19–25, 2026',
   //   powUrl: 'documents/pow-2026-10-19.pdf', bulletinUrl: 'documents/bulletin-2026-10-19.pdf' }
   // Use the ID of the week to display first; an empty value selects the newest entry.
-  featuredWeekId: '2026-10-18',
+  featuredWeekId: '2026-10-25',
   clubs: [
   {
     "id": "semper-fi",
