@@ -1,0 +1,16 @@
+# macOS metadata
+.DS_Store
+._*
+
+# Local credentials and environment settings; never put secrets in public config.js.
+.env
+.env.*
+!.env.example
+
+# Local dependencies and diagnostic files
+node_modules/
+*.log
+
+# Editor-specific workspace settings
+.idea/
+.vscode/

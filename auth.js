@@ -36,12 +36,12 @@ window.BoardAuth = (() => {
     sessionStorage.setItem(sessionKey, config.version);
     return true;
   }
-  // Only our two pages can be return destinations, including when hosted under a repository path.
+  // Only known site pages can be return destinations, including when hosted under a repository path.
   function returnDestination(value) {
     const base = new URL('./', location.href);
     try {
       const destination = new URL(value || 'index.html', base);
-      const allowedPaths = ['index.html', 'clubs.html'].map(page => new URL(page, base).pathname);
+      const allowedPaths = ['index.html', 'clubs.html', 'ndt.html', 'marines.html', 'sep.html', 'sop.html'].map(page => new URL(page, base).pathname);
       if (destination.origin === base.origin && allowedPaths.includes(destination.pathname)) {
         return destination.href;
       }

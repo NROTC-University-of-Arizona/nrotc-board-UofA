@@ -2,30 +2,41 @@
 <html lang="en" data-login-required>
 <head>
   <style>html[data-login-required]:not([data-authenticated]) body{display:none}</style>
-  <script src="auth-config.js"></script><script src="auth.js"></script>
+  <script src="auth-config.js"></script><script src="auth.js?v=community-4"></script>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="University of Arizona NROTC battalion announcements, upcoming events, and volunteer opportunities.">
   <title>The Battalion Board | Arizona NROTC</title>
   <link rel="icon" type="image/gif" href="assets/arizona-nrotc-crest.gif">
-  <link rel="stylesheet" href="styles.css?v=pdf-responsive-3"><script src="site-content.js" defer></script><script src="resources.js?v=pdf-responsive-3" defer></script><script src="support-board.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=forms-board-1"><script src="site-content.js?v=sop-1" defer></script><script src="resources.js?v=pdf-responsive-5" defer></script><script src="support-board.js?v=forms-board-1" defer></script>
+  <script src="community-content.js?v=community-5" defer></script>
+  <script src="community.js?v=community-4" defer></script>
 </head>
 <body>
   <header class="masthead"><a class="wordmark" href="./"><img class="unit-logo" src="assets/arizona-nrotc-crest.gif" alt="Arizona NROTC crest" width="742" height="960"><span>UNIVERSITY OF ARIZONA<small>NAVAL RESERVE OFFICERS TRAINING CORPS</small></span></a></header>
-  <nav class="site-nav" aria-label="Main navigation"><a href="#pow-section">Plan of the Week</a><a href="#weekly-bulletin">Weekly Bulletin</a><a href="#support-board">Battalion Updates</a><a href="clubs.html">Club Spaces ↗</a><button type="button" class="logout-button" data-logout>Log out</button></nav>
+  <nav data-site-navigation class="site-nav" aria-label="Main navigation">
+    <a class="nav-link" href="https://docs.google.com/document/d/1AiHiwlf3jOCOGjx7nE92hWKIOsCIBxa97rZZ1was68g/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Quick Links</a>
+    <a class="nav-link" href="clubs.html">Club Spaces</a>
+    <details class="nav-disclosure"><summary class="nav-toggle">Platoons</summary><div class="nav-panel platoon-menu"><a href="ndt.html">NDT</a><a href="marines.html">Marine Platoon</a></div></details>
+    <a class="nav-link" href="sep.html">SEP</a>
+    <a class="nav-link" href="sop.html">SOP</a>
+    <button type="button" class="logout-button" data-logout>Log out</button>
+  </nav>
   <main class="emblem-layout">
     <aside class="page-emblem page-emblem-navy"><img src="assets/navy-emblem.svg" alt="United States Navy emblem" width="160" height="160"></aside>
     <section class="resource-hub" aria-labelledby="pow-heading" id="pow-section">
       <div class="resource-heading"><div><p class="eyebrow">YOUR WEEK AT A GLANCE</p><h1 id="pow-heading">Plan of the Week</h1></div><label class="week-picker">Select week<select id="document-week"><option>No weeks uploaded yet</option></select></label></div>
       <div id="pow-document" class="document-panel"><p class="empty">The Plan of the Week PDF has not been added yet.</p></div>
-      <div class="resource-links">
-        <section id="weekly-bulletin" class="resource-card"><p class="eyebrow">FROM THE BATTALION</p><h2>Weekly Bulletin</h2><div id="bulletin-document"><p>No bulletin PDF has been added yet.</p></div></section>
-        <section class="resource-card"><p class="eyebrow">FIND YOUR COMMUNITY</p><h2>Club Spaces</h2><p>Explore club events, pictures, and notices.</p><a class="resource-button" href="clubs.html">Visit club boards ↗</a></section>
-      </div>
+      <section id="rotc-forms-board" class="wood-frame rotc-forms-board" aria-labelledby="rotc-forms-heading">
+        <div class="club-inner">
+          <h2 id="rotc-forms-heading">ROTC Forms &amp; Requirements</h2>
+          <div id="rotc-forms" class="note form-link-list"></div>
+        </div>
+        <div class="frame-plaque">ARIZONA NROTC <span>✦</span> FORMS &amp; REQUIREMENTS</div>
+      </section>
       <section id="support-board" class="wood-frame support-board" aria-labelledby="support-heading">
         <div class="board-inner support-inner">
           <header class="support-heading"><h2 id="support-heading">Battalion Updates</h2><p>Last updated: <time id="site-last-updated">Not available</time></p></header>
           <section class="board-section"><div class="section-heading"><h2>Last-minute updates</h2></div><div id="urgent-updates" class="notes"></div></section>
-          <section class="board-section"><div class="section-heading"><h2>Quick links</h2></div><div id="quick-links" class="note quick-link-list"></div></section>
           <section class="board-section feedback-section">
             <div class="section-heading"><h2>Feedback &amp; corrections</h2></div>
             <div class="note feedback-paper">

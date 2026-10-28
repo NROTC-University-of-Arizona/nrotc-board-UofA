@@ -4,7 +4,7 @@ const vendorUrl = new URL('./assets/vendor/pdfjs/', import.meta.url);
 GlobalWorkerOptions.workerSrc = new URL('pdf.worker.min.mjs', vendorUrl).href;
 
 /** Render pages near the viewport; return cleanup for week changes. */
-export function mountPdfPreview(container, url) {
+export function mountPdfPreview(container, url, documentTitle = 'POW PDF') {
   // Keep essential geometry with the renderer so stale/missing CSS cannot
   // display high-density canvases at their much larger pixel-buffer size.
   Object.assign(container.style, { display: 'grid', gap: '16px', width: '100%', minWidth: '0', marginTop: '16px' });
@@ -57,7 +57,7 @@ export function mountPdfPreview(container, url) {
         if (disposed || error.name === 'RenderingCancelledException') return;
         entry.error = document.createElement('p');
         entry.error.className = 'pdf-page-error';
-        entry.error.textContent = 'This page could not be previewed. Use Open POW PDF above.';
+        entry.error.textContent = `This page could not be previewed. Use Open ${documentTitle} above.`;
         entry.surface.append(entry.error);
       } finally {
         entry.renderTask = null;
@@ -108,7 +108,7 @@ export function mountPdfPreview(container, url) {
       }
       if (!disposed) status.textContent = `${pdf.numPages} pages · Scroll to read`;
     } catch {
-      if (!disposed) status.textContent = 'Preview unavailable. Use Open POW PDF above to read the document.';
+      if (!disposed) status.textContent = `Preview unavailable. Use Open ${documentTitle} above to read the document.`;
     }
   })();
 

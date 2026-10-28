@@ -2,15 +2,17 @@
 // Keep previous weeks here so readers can select older PDFs.
 window.SITE_CONTENT = {
   // Update this timestamp when published website content changes, never on each visit.
-  lastUpdatedAt: '2026-10-26T20:24:00+00:00',
-  urgentUpdates: [],
+  lastUpdatedAt: '2026-10-28T18:55:17Z',
   // Updates use { title, body, postedAt, expiresAt } with explicit timezone offsets.
-  quickLinks: [
-    { label: 'Recall Roster', url: 'https://docs.google.com/spreadsheets/d/1moq47yG8-bDB-K5VUZ0MWc-25F7KwL2fDt2iDZkI1VQ/edit?gid=2104749652#gid=2104749652' },
-    { label: 'Plan of the Week', url: '#pow-section' },
-    { label: 'Weekly Bulletin', url: '#weekly-bulletin' },
-    { label: 'Semper Fi Club', url: 'clubs.html#club-semper-fi' },
-    { label: 'Spec War Club', url: 'clubs.html#club-spec-war' }
+  urgentUpdates: [],
+  // Use only owner-supplied forms and requirements. A reference can replace a form URL.
+  // Optional dueAt values use Tucson's explicit offset, and display in military time.
+  rotcForms: [
+    {
+      label: 'MIDN Evaluations',
+      dueAt: '2026-11-06T16:00:00-07:00',
+      reference: 'See Appendix 3-A of the SOP.'
+    }
   ],
   // Feedback is collected through the linked Google Form.
   feedbackFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScSVx4asIgXIUOtr2Dn0xjIAz7ViJmSeSv6hYk-5E_SsQ2rAA/viewform?usp=publish-editor', 

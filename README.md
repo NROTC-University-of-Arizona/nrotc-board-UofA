@@ -1,27 +1,35 @@
 # Arizona NROTC Battalion Board
 
-A public bulletin board for upcoming events, volunteer opportunities, and announcements, built with HTML, CSS, and JavaScript.
+The University of Arizona NROTC document and resource board, built with HTML, CSS, and JavaScript.
 
 ## Current status
 
 - Dark wooden board with University of Arizona, Navy, and Marine Corps imagery.
-- Public reading access; no login or backend is required.
+- A browser-only login gate on each resource page; no backend is required. See the login limits below.
 - The homepage uses the POW PDF in place of separate event and duty boards.
-- The homepage starts with a POW PDF viewer, weekly bulletin link, and club-space link. POW 9 and its Google Docs weekly bulletin link are loaded for local review. Club names are pending.
-- The document week selector changes the POW and weekly bulletin links.
+- The homepage starts with a POW viewer and archive selector, followed by ROTC Forms & Requirements and Battalion Updates.
+- Shared navigation provides bulletin resources, Club Spaces, NDT, Marine Platoon, SEP, and the SOP.
+- Document viewers use the native PDF toolbar on laptops and vertically scrolling pages on mobile.
 - OpenClaw/WhatsApp publishing is planned but is not connected.
 
 ## Files
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Page structure and the three board sections |
+| `index.html` | POW viewer, forms and requirements, and Battalion Updates |
 | `styles.css` | Colors, typography, board styling, and responsive layouts |
-| `app.js` | Notice content, rendering, and notice detail dialogs |
+| `app.js` | Historical notice renderer; no longer loaded by the homepage |
 | `config.js` | Public display settings |
-| `site-content.js` | Weekly PDF links and club posts |
+| `site-content.js` | POW archive, club posts, forms, updates, and feedback link |
 | `resources.js` | PDF archive and club board rendering |
-| `clubs.html` | Club spaces page |
+| `clubs.html` | Club Spaces page |
+| `ndt.html`, `marines.html`, `sep.html`, `sop.html` | Platoon and resource pages |
+| `community-content.js`, `community.js` | Shared navigation, deadline banner, and resource configuration/rendering |
+| `support-board.js` | Forms and requirements, urgent updates, and feedback rendering |
+| `pdf-preview.js` | Mobile PDF rendering |
+| `login.html`, `login.js`, `auth.js`, `auth-config.js` | Browser-only login gate |
+| `documents/` | Published POW archive and unit SOP |
+| `tests/community-pages.cjs` | Desktop/mobile browser regression checks |
 | `week-5.js` | Existing POW 5 event and duty draft |
 | `assets/` | Logo images and source information |
 
@@ -50,7 +58,7 @@ weeks: [
 
 Use a different date-based ID for each week. Keep previous entries and PDFs to retain the archive. Set `featuredWeekId` to the week that should open first, or leave it empty for the newest entry. Leave a missing PDF URL empty. An HTTPS PDF link also works; some external hosts block embedded previews, so the Open link is always available.
 
-The viewer displays the PDF itself; it does not extract events into the event board. Send new PDFs here for review and preparation before publishing. The original POW has not been copied into the public assets automatically.
+The viewer displays the PDF itself; it does not extract events into the event board. Send new PDFs here for review and preparation before publishing. Only add documents approved for publication.
 
 ## Add club spaces
 
@@ -87,7 +95,7 @@ There is no visitor upload form. Send files here to prepare a local update, or u
 
 ## Files to include when publishing this update
 
-Upload `index.html`, `styles.css`, `clubs.html`, `site-content.js`, and `resources.js` alongside the existing files. Preserve `app.js`, `config.js`, `week-5.js`, and `assets/`. Include any referenced PDFs and club images. Commit only after reviewing the content: a commit to the configured publishing branch updates the public site. Git commits retain earlier versions; keeping older week entries also makes those weeks accessible to readers.
+Upload the changed HTML, JavaScript, and stylesheet files at the repository root, preserving their existing folder structure. Include any new referenced PDFs and images. Keep the existing authentication files, bundled PDF.js assets, older documents, and club photos. Commit only after reviewing the content: a commit to the configured publishing branch updates the public site. Git commits retain earlier versions; keeping older week entries also makes those weeks accessible to readers.
 
 ## Preview locally
 
@@ -111,7 +119,7 @@ No project-wide software license has been selected yet. Public repository visibi
 
 ## Local login gate
 
-The homepage and Club Spaces now use a browser-only login gate. `login.html`, `login.js`, `auth.js`, and `auth-config.js` must accompany the pages when this change is eventually published. The allowlist contains hashes for the 82 unique addresses in the FALL 2026 Contact Info worksheet only. The source workbook and plaintext credentials are not part of the website.
+All six resource pages use a browser-only login gate. `login.html`, `login.js`, `auth.js`, and `auth-config.js` must accompany the pages when publishing. The allowlist contains hashes for the 82 unique addresses in the FALL 2026 Contact Info worksheet only. The source workbook and plaintext credentials are not part of the website.
 
 Emails are trimmed and compared in lowercase. The shared password is case-sensitive. Successful login uses sessionStorage for the tab; Log out clears it. Browser session restore or tab duplication may retain/copy sessionStorage according to browser behavior. This is not a verified identity system: hashes, JavaScript, PDFs, and photos remain publicly accessible, and visitors can bypass the gate.
 
@@ -119,9 +127,9 @@ To replace access credentials, regenerate auth-config.js hashes using SHA-256 of
 
 ## Battalion support board
 
-The homepage includes last-minute updates, quick links, feedback, and a last-updated time. Configure them in `site-content.js` and include `support-board.js` when publishing. Keep `lastUpdatedAt` equal to the actual content update time (ISO timestamp with offset); update it whenever publishing content changes. The displayed time uses Tucson time in four-digit military format without a timezone suffix.
+The homepage has a dedicated ROTC Forms & Requirements wooden board above Battalion Updates. The Battalion Updates board contains last-minute updates, feedback, and a last-updated time. Configure them in `site-content.js` and include `support-board.js` when publishing. Keep `lastUpdatedAt` equal to the actual content update time (ISO timestamp with offset); update it whenever publishing content changes. The displayed time uses Tucson time in four-digit military format without a timezone suffix.
 
-Add notices to `urgentUpdates` with `title`, `body`, `postedAt`, and optional `expiresAt`. Use ISO timestamps with offsets. Future and expired notices are hidden; active notices appear newest first. Leaving the array empty shows an honest no-updates message. `quickLinks` contains labels and local or HTTPS URLs.
+Add notices to `urgentUpdates` with `title`, `body`, `postedAt`, and optional `expiresAt`. Use ISO timestamps with offsets. Future and expired notices are hidden; active notices appear newest first. Leaving the array empty shows an honest no-updates message. `rotcForms` contains `{ label, url, dueAt, reference }` entries for forms and requirements. The URL, deadline, and reference are optional. Use an ISO timestamp with a Tucson offset (`-07:00`) for deadlines; the site displays military time. A requirement without a URL appears as text, such as MIDN Evaluations with its Appendix 3-A reference. Add only ROTC form links supplied by the site owner; do not populate this list automatically from the bulletin or general resources. An empty array displays “No ROTC forms posted yet.” This homepage section is separate from the Quick Links navigation dropdown.
 
 Set `feedbackFormUrl` to the Google Form's HTTPS respondent link. The feedback button opens the form in a new tab; visitors submit reports through Google Forms. The website does not collect or store their answers. Form access and response settings are managed by the form owner in Google Forms.
 
@@ -136,3 +144,21 @@ Preview via an HTTP server rather than opening HTML directly from disk. Check al
 The preview keeps essential canvas sizing in its renderer and uses a separate `pow-page-preview` class so cached iframe styles cannot enlarge the pages. HTML references versioned stylesheet/renderer URLs; bump their version together when changing this feature. Regression checks should include forcing the previous stylesheet at desktop high pixel density, as well as normal mobile and desktop loads.
 
 The responsive POW preview uses the browser’s native PDF toolbar on larger screens with a fine pointer. Screens at or below 760px, touch-first devices, and browsers reporting no native PDF support use scrolling PDF.js pages. Changing the layout or selected week disposes of the previous preview. Toolbar controls vary by desktop browser.
+
+## Platoons, SEP, and shared navigation
+
+The signed-in pages share `community.js` and `community-content.js`. The latter holds the deadline banner, verified bulletin resource groups, SEP image path, and SEP contact. These live separately from `site-content.js` so weekly POW updates preserve them. NDT has stacked viewers for its schedule, COVE watchbill, and squad organization, followed by an empty notice board. Marine Platoon has its own empty notice board; SEP has its example, Google Form links, and a Google Sheets preview. The shared navigation is Quick Links, Club Spaces, Platoons, SEP, SOP, and Log out. Quick Links displays the full bulletin and the forms, awards, and reference groups; SEP and NDT groups remain in the configuration for their dedicated pages.
+
+To change the banner, edit `banner.message`, `deadlineLabel`, optional `url`, and `expiresAt`. Use an ISO timestamp with an explicit Tucson offset (`-07:00`). An empty message hides it; an empty expiration keeps it visible until removed. A past or invalid expiration hides it. The current payment reminder expires at the start of October 31, 2026 in Tucson, including on pages left open. This banner is configured manually; weekly document updates do not choose reminders automatically.
+
+Bulletin links were read from the source bulletin on October 28, 2026. Google remains responsible for access and submissions. The site only links to the forms, and it does not change their permissions. If the matrix preview is unavailable or asks for access, the Open Infraction Matrix link remains available. The example image contains historical sample entries and is labeled accordingly.
+
+All six signed-in pages use the existing browser gate, with matching allowed return destinations in `auth.js`. This remains the same convenience gate documented above; this update does not implement the separate secure-login migration. When publishing these resources, include the four resource HTML pages, both community scripts, `assets/sep/`, the SOP PDF, and updates to the existing pages, login page, auth script, stylesheet, and source notes. Keep the shared asset version suffix in sync across pages when changing navigation or styling.
+
+Local verification: with the frontend served on port 5173, run `node tests/community-pages.cjs` from the repository root using Node with Playwright available. Set `BOARD_TEST_URL` to test a different HTTP server URL. It covers desktop/mobile navigation, login redirects and logout, actual content in all three NDT viewers, spreadsheet scrolling, SEP destinations, archive viewers, existing clubs, and banner expiration in a different visitor timezone. The test does not submit any external forms.
+
+NDT preview URLs are configured alongside each original document link using `previewUrl` and `previewType`. The schedule uses Google Docs preview; the COVE table selects worksheet `gid=0`, and the squad table uses the default worksheet. Each viewer has an Open Document link and access guidance; Google sharing permissions remain unchanged. Wide tables scroll inside their frames on small screens.
+
+The matrix uses Google’s HTML table view (`gviz/tq?tqx=out:html` for the verified worksheet gid 1624471322). The regular preview returned an empty body during verification because its scripts failed. The table view retains the cell values in a simple read-only table; scripts are disabled in its iframe because the table is server-rendered. The original Google Sheet link is always available for the full viewer.
+
+The SOP page (`sop.html`) uses the same laptop/native and mobile/PDF.js viewers as the POW. Its PDF path lives in `community-content.js` under `sop.pdfUrl`, separate from weekly updates. The local source is `NROTCUAINST 1533.1 SOP.pdf`, copied unchanged to `documents/nrotcua-sop-1533-1.pdf` (58 pages). Appendix 3-A starts on PDF page 42. The evaluation deadline and reference are displayed only on the homepage forms board, configured by `rotcForms` in `site-content.js`. The SOP page contains the document viewer and its appendix guidance, without a duplicate forms board. No separate evaluation submission link is configured.

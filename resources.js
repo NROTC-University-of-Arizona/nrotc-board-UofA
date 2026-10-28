@@ -1,6 +1,6 @@
 'use strict';
 
-// One renderer serves the document hub and club page without requiring a backend.
+// Shared renderers for the POW, SOP, and club boards; no backend is required.
 (() => {
   if (!window.BoardAuth?.isSignedIn()) return;
   const content = window.SITE_CONTENT;
@@ -33,12 +33,12 @@
   // Touch-first devices avoid native PDF embeds, which may show only page one.
   const scrollingPdfLayout = window.matchMedia('(max-width: 760px), (hover: none) and (pointer: coarse)');
 
-  function renderDocument(container, path, title, embed) {
+  function renderDocument(container, path, title, embed, emptyMessage = `${title} has not been added for this week.`) {
     if (embed) disposePdfPreview();
     container.replaceChildren();
     const url = contentUrl(path);
     if (!url) {
-      container.append(node('p', 'empty', `${title} has not been added for this week.`));
+      container.append(node('p', 'empty', emptyMessage));
       return;
     }
     container.append(documentLink(url, `Open ${title} ↗`));
@@ -57,12 +57,12 @@
       let destroyViewer = () => {};
       disposePdfPreview = () => { disposed = true; destroyViewer(); };
       preview.textContent = 'Loading PDF…';
-      import('./pdf-preview.js?v=2').then(({ mountPdfPreview }) => {
-        if (!disposed) destroyViewer = mountPdfPreview(preview, url);
+      import('./pdf-preview.js?v=3').then(({ mountPdfPreview }) => {
+        if (!disposed) destroyViewer = mountPdfPreview(preview, url, title);
       }).catch(() => {
-        if (!disposed) preview.textContent = 'Preview unavailable. Use Open POW PDF above to read the document.';
+        if (!disposed) preview.textContent = `Preview unavailable. Use Open ${title} above to read the document.`;
       });
-      container.append(node('p', 'document-help', 'Scroll down to read every page. For zoom, text selection, or download, use Open POW PDF above.'));
+      container.append(node('p', 'document-help', `Scroll down to read every page. For zoom, text selection, or download, use Open ${title} above.`));
     }
   }
 
@@ -82,12 +82,20 @@
       const displayWeek = () => {
         const week = weeks.find(entry => entry.id === weekSelect.value);
         renderDocument(document.getElementById('pow-document'), week.powUrl, 'POW PDF', true);
-        renderDocument(document.getElementById('bulletin-document'), week.bulletinUrl, 'Weekly Bulletin', false);
       };
       weekSelect.addEventListener('change', displayWeek);
       scrollingPdfLayout.addEventListener('change', displayWeek);
       displayWeek();
     }
+  }
+
+  // The SOP uses the same responsive viewer as the POW, with a separate document source.
+  const sopDocument = document.getElementById('sop-document');
+  if (sopDocument) {
+    const displaySop = () => renderDocument(sopDocument, window.COMMUNITY_CONTENT?.sop?.pdfUrl,
+      'SOP PDF', true, 'The SOP document has not been added yet.');
+    scrollingPdfLayout.addEventListener('change', displaySop);
+    displaySop();
   }
 
   const clubBoards = document.getElementById('club-boards');

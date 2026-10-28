@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-login-required>
+<head>
+  <style>html[data-login-required]:not([data-authenticated]) body{display:none}</style>
+  <script src="auth-config.js"></script><script src="auth.js?v=community-4"></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEP &amp; Tutoring | Arizona NROTC</title>
+  <link rel="icon" type="image/gif" href="assets/arizona-nrotc-crest.gif">
+  <link rel="stylesheet" href="styles.css?v=forms-board-1">
+
+  <script src="community-content.js?v=community-5" defer></script>
+  <script src="community.js?v=community-4" defer></script>
+</head>
+<body>
+  <header class="masthead"><a class="wordmark" href="./"><img class="unit-logo" src="assets/arizona-nrotc-crest.gif" alt="Arizona NROTC crest" width="742" height="960"><span>UNIVERSITY OF ARIZONA<small>NAVAL RESERVE OFFICERS TRAINING CORPS</small></span></a></header>
+  <nav data-site-navigation class="site-nav" aria-label="Main navigation">
+    <a class="nav-link" href="https://docs.google.com/document/d/1AiHiwlf3jOCOGjx7nE92hWKIOsCIBxa97rZZ1was68g/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Quick Links</a>
+    <a class="nav-link" href="clubs.html">Club Spaces</a>
+    <details class="nav-disclosure"><summary class="nav-toggle">Platoons</summary><div class="nav-panel platoon-menu"><a href="ndt.html">NDT</a><a href="marines.html">Marine Platoon</a></div></details>
+    <a class="nav-link" href="sep.html">SEP</a>
+    <a class="nav-link" href="sop.html">SOP</a>
+    <button type="button" class="logout-button" data-logout>Log out</button>
+  </nav>
+  <main class="resource-hub community-page" id="sep-resources">
+    <div class="board-heading"><p class="eyebrow">ACADEMIC SUPPORT</p><h1>SEP &amp; Tutoring</h1><p>Your example, submission links, and reference resources in one place.</p></div>
+    <section class="wood-frame sep-example-board" aria-labelledby="sep-example-heading">
+      <div class="club-inner">
+        <h2 id="sep-example-heading">Completed SEP Example</h2>
+        <p class="club-description">Use this example as a guide for recording sessions and verification. The dates shown are sample entries.</p>
+        <figure class="sep-example">
+          <a id="sep-example-link" target="_blank" rel="noopener noreferrer" aria-label="Open completed SEP example image at full size">
+            <img id="sep-example-image" width="1686" height="674" alt="Completed SEP worksheet example">
+          </a>
+          <figcaption>Select the image to open it at full size.</figcaption>
+        </figure>
+        <div data-sep-link="example"></div>
+      </div>
+      <div class="frame-plaque">ARIZONA NROTC <span>✦</span> SEP &amp; TUTORING</div>
+    </section>
+    <div class="resource-links sep-links">
+      <section class="resource-card" aria-labelledby="sep-start-heading">
+        <p class="eyebrow">01 / PREPARE</p><h2 id="sep-start-heading">Start Your Sheet</h2>
+        <p>Open the blank sheet and use the completed example above as your guide.</p>
+        <div data-sep-link="blank"></div>
+      </section>
+      <section class="resource-card" aria-labelledby="sep-submit-heading">
+        <p class="eyebrow">02 / SUBMIT</p><h2 id="sep-submit-heading">SEP/Tutoring Dropbox</h2>
+        <p>Select your company to open its Fall 2026 submission form.</p>
+        <div class="sep-dropboxes">
+          <div data-sep-link="a1" data-label="A1 Dropbox ↗"></div>
+          <div data-sep-link="a2" data-label="A2 Dropbox ↗"></div>
+          <div data-sep-link="a3" data-label="A3 Dropbox ↗"></div>
+          <div data-sep-link="hq" data-label="HQ Dropbox ↗"></div>
+        </div>
+      </section>
+    </div>
+    <section class="resource-card sep-matrix" aria-labelledby="sep-matrix-heading">
+      <div class="resource-heading"><div><p class="eyebrow">REFERENCE</p><h2 id="sep-matrix-heading">SEP Infraction Matrix Fall 2026</h2></div><div data-sep-link="matrix" data-label="Open Infraction Matrix ↗"></div></div>
+      <p class="document-help">If the preview does not display or Google requests access, open the matrix above. Google controls access to the sheet.</p>
+      <div id="sep-matrix-viewer"></div>
+      <p class="document-help">Scroll across the table to see every column on a small screen.</p>
+    </section>
+    <section class="resource-card sep-contact" aria-labelledby="sep-contact-heading">
+      <p class="eyebrow">NEED A HAND?</p><h2 id="sep-contact-heading">Point of Contact</h2>
+      <p id="sep-contact-name"></p>
+      <div class="resource-actions"><a id="sep-contact-email" class="resource-button"></a><a id="sep-contact-phone" class="resource-button"></a></div>
+    </section>
+  </main>
+  <footer><span>UNIVERSITY OF ARIZONA NROTC</span><a href="index.html">Return to the battalion</a></footer>
+</body>
+</html>
