@@ -18,7 +18,8 @@ window.COMMUNITY_CONTENT = {
       "links": [
         {
           "label": "Blank SEP Sheet",
-          "url": "https://docs.google.com/spreadsheets/d/1nlTZd1SVJe06p4SR-uuOY9sUOf0tU_zEB89u4-XGy8g/edit?gid=0#gid=0",
+          // Replacement template supplied by the site owner on November 2, 2026.
+          "url": "https://docs.google.com/spreadsheets/d/1ComvRRjBv9HGFdUBU3bVzRzkpI9g1_ldbe5r-dThnbI/edit?usp=sharing",
           "id": "blank"
         },
         {
