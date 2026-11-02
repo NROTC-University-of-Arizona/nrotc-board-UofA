@@ -2,7 +2,7 @@
 // Keep previous weeks here so readers can select older PDFs.
 window.SITE_CONTENT = {
   // Update this timestamp when published website content changes, never on each visit.
-  lastUpdatedAt: '2026-10-31T16:41:59Z',
+  lastUpdatedAt: '2026-11-02T17:03:29Z',
   // Updates use { title, body, postedAt, expiresAt } with explicit timezone offsets.
   urgentUpdates: [],
   // Use only owner-supplied forms and requirements. A reference can replace a form URL.
@@ -50,6 +50,7 @@ window.SITE_CONTENT = {
   {
     "id": "semper-fi",
     "name": "Semper Fi Club",
+    "theme": "marine-corps",
     "description": "Photos from the club.",
     "posts": [
       {
@@ -77,6 +78,28 @@ window.SITE_CONTENT = {
   {
     "id": "spec-war",
     "name": "Spec War Club",
+    "theme": "special-warfare",
+    "description": "",
+    "posts": []
+  },
+  {
+    "id": "tailhook",
+    "name": "Tailhook Club",
+    "theme": "aviation",
+    "description": "",
+    "posts": []
+  },
+  {
+    "id": "770",
+    "name": "770 Club",
+    "theme": "submarine-warfare",
+    "description": "",
+    "posts": []
+  },
+  {
+    "id": "arleigh-burke",
+    "name": "Arleigh Burke Society",
+    "theme": "surface-warfare",
     "description": "",
     "posts": []
   }

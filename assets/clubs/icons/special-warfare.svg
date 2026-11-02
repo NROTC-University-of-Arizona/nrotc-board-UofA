@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 128" fill="none">
+  <!-- Original trident-and-water motif; not an official qualification insignia. -->
+  <g stroke="#e3cfab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M80 15v91M72 25l8-12 8 12M48 29v23c0 18 14 25 32 25s32-7 32-25V29M40 39l8-12 8 12M104 39l8-12 8 12M71 94h18"/>
+    <circle cx="80" cy="62" r="45" stroke-dasharray="2 8" opacity=".4"/>
+    <path opacity=".8" d="M25 106c9-8 18 8 27 0s18 8 27 0 18 8 27 0 18 8 27 0M51 117h58"/>
+  </g>
+</svg>

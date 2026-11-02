@@ -89,6 +89,8 @@ Create `assets/clubs` and add the photo there. Date, time, location, body, and i
 
 There is no visitor upload form. Send files here to prepare a local update, or upload them using GitHub's **Add file → Upload files** and edit `site-content.js`. Uploading an image alone does not add a post; the post must reference its exact path and filename. GitHub Pages serves saved files and cannot store visitor uploads by itself.
 
+Each club may set a `theme`: `marine-corps`, `special-warfare`, `aviation`, `submarine-warfare`, or `surface-warfare`. The theme adds a specialty label, decorative artwork, and accent colors without adding any events or photos. `clubs.css` styles only Club Spaces; keep it and `assets/clubs/icons/` with the page when publishing. Clubs without a recognized theme retain a plain wooden board.
+
 ## Previous notice data
 
 `week-5.js` and `app.js` are retained as historical project files but are no longer loaded by the homepage. The POW PDF replaces those event and duty boards.

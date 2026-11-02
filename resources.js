@@ -100,20 +100,47 @@
 
   const clubBoards = document.getElementById('club-boards');
   if (!clubBoards || !content.clubs.length) return;
+
+  // Presentation stays separate from club posts; unknown themes use the plain board.
+  const clubThemes = {
+    'marine-corps': { label: 'Marine Corps', iconUrl: 'assets/usmc-ega.svg' },
+    'special-warfare': { label: 'Special Warfare', iconUrl: 'assets/clubs/icons/special-warfare.svg' },
+    aviation: { label: 'Aviation', iconUrl: 'assets/clubs/icons/aviation.svg' },
+    'submarine-warfare': { label: 'Submarine Warfare', iconUrl: 'assets/clubs/icons/submarine.svg' },
+    'surface-warfare': { label: 'Surface Warfare', iconUrl: 'assets/clubs/icons/surface-warfare.svg' }
+  };
   clubBoards.replaceChildren();
   const directory = document.getElementById('club-directory');
   for (const [index, club] of content.clubs.entries()) {
+    const theme = Object.hasOwn(clubThemes, club.theme) ? clubThemes[club.theme] : null;
     const section = node('section', 'wood-frame club-board');
+    if (theme) section.dataset.clubTheme = club.theme;
     section.id = `club-${club.id || index}`;
     const headingId = `club-title-${index}`;
     section.setAttribute('aria-labelledby', headingId);
     const link = node('a', 'resource-button', club.name);
+    if (theme) link.dataset.clubTheme = club.theme;
     link.href = `#${section.id}`;
     directory.append(link);
     const inner = node('div', 'club-inner');
     const heading = node('h2', '', club.name);
     heading.id = headingId;
-    inner.append(heading, node('p', 'club-description', club.description));
+    const header = node('header', 'club-header');
+    const identity = node('div', 'club-identity');
+    if (theme) identity.append(node('p', 'club-specialty', theme.label));
+    identity.append(heading);
+    if (club.description) identity.append(node('p', 'club-description', club.description));
+    header.append(identity);
+    if (theme) {
+      // These marks decorate the adjacent text; avoid repeating them to screen readers.
+      const emblem = node('img', 'club-emblem');
+      emblem.src = theme.iconUrl;
+      emblem.alt = '';
+      emblem.width = 160;
+      emblem.height = 120;
+      header.append(emblem);
+    }
+    inner.append(header);
     const posts = node('div', 'club-posts');
     for (const post of club.posts || []) {
       const card = node('article', 'note');

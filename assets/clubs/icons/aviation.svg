@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 128" fill="none">
+  <!-- Original aviation motif; not an official qualification insignia. -->
+  <g stroke="#e3cfab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#e3cfab" fill-opacity=".12" d="M80 9c-5 5-6 16-7 31L23 77v10l49-18 2 31-19 12v7l25-7 25 7v-7l-19-12 2-31 49 18V77L87 40c-1-15-2-26-7-31Z"/>
+    <path d="M80 26v69m-8-26 8-17 8 17M80 112v9c0 4 7 4 7-1"/>
+    <path opacity=".45" d="M12 40h25m86 0h25M17 49h13m100 0h13"/>
+  </g>
+</svg>

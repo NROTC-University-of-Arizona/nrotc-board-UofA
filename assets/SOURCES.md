@@ -5,6 +5,10 @@ Source: https://commons.wikimedia.org/wiki/File:Arizona_Wildcats_logo.svg
 Original: https://upload.wikimedia.org/wikipedia/commons/3/34/Arizona_Wildcats_logo.svg
 The source identifies the geometric artwork as public domain; the logo remains a trademark.
 
+## Club board artwork
+
+`clubs/icons/aviation.svg`, `submarine.svg`, `surface-warfare.svg`, and `special-warfare.svg` are original decorative line drawings created for the club boards. They are thematic illustrations, not official club logos or qualification insignia. Semper Fi Club reuses the existing `usmc-ega.svg` emblem. Club photos are unchanged.
+
 ## Arizona NROTC crest
 
 `arizona-nrotc-crest.png`: supplied by the user for the header and browser tab icon. Original image preserved without alterations.

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 128" fill="none">
+  <!-- Original submarine silhouette with periscope and depth markers. -->
+  <g stroke="#e3cfab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#e3cfab" fill-opacity=".12" d="M32 61h91c16 0 27 9 27 18s-11 18-27 18H32L16 79l16-18Z"/>
+    <path d="M62 61V45h26l10 16M74 45V31h13v7M20 71l-10-9v34l10-9M37 79h81M110 69h8"/>
+    <path opacity=".5" d="M33 108h75m-54 7h30M17 29h22m-11-11v22m94-16h15m-8-7v15"/>
+  </g>
+</svg>

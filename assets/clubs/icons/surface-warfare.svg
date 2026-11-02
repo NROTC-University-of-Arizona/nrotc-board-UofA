@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 128" fill="none">
+  <!-- Original surface-combatant motif with mast, bow, and wake. -->
+  <g stroke="#e3cfab" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path fill="#e3cfab" fill-opacity=".12" d="M13 83h134l-20 19H32L13 83ZM43 83V65h24V51h28l12 32M47 65V54h13v11"/>
+    <path d="M79 51V20m-16 12h31M73 20h15M68 42h21M73 60h17M112 83V73h15l7 10M120 73l13-9"/>
+    <path opacity=".7" d="M10 111c10-8 20 8 30 0s20 8 30 0 20 8 30 0 20 8 30 0 15 4 20 0M30 119h30m38 0h30"/>
+  </g>
+</svg>

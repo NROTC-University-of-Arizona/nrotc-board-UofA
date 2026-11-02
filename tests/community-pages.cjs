@@ -119,7 +119,7 @@ const pages = ['index.html', 'clubs.html', 'ndt.html', 'marines.html', 'sep.html
         await page.screenshot({ path: `/tmp/nrotc-sop-${width}.png` });
       }
       if (file === 'clubs.html') {
-        assert.equal(await page.locator('.club-board').count(), 2);
+        assert.equal(await page.locator('.club-board').count(), 5);
         assert.equal(await page.locator('.club-photo').count(), 4);
       }
       if (file === 'ndt.html') {
