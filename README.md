@@ -164,3 +164,13 @@ NDT preview URLs are configured alongside each original document link using `pre
 The matrix uses Google’s HTML table view (`gviz/tq?tqx=out:html` for the verified worksheet gid 1624471322). The regular preview returned an empty body during verification because its scripts failed. The table view retains the cell values in a simple read-only table; scripts are disabled in its iframe because the table is server-rendered. The original Google Sheet link is always available for the full viewer.
 
 The SOP page (`sop.html`) uses the same laptop/native and mobile/PDF.js viewers as the POW. Its PDF path lives in `community-content.js` under `sop.pdfUrl`, separate from weekly updates. The local source is `NROTCUAINST 1533.1 SOP.pdf`, copied unchanged to `documents/nrotcua-sop-1533-1.pdf` (58 pages). Appendix 3-A starts on PDF page 42. The evaluation deadline and reference are displayed only on the homepage forms board, configured by `rotcForms` in `site-content.js`. The SOP page contains the document viewer and its appendix guidance, without a duplicate forms board. No separate evaluation submission link is configured.
+
+## SOP appendix library
+
+On the SOP page, **Browse all appendices** jumps below the full viewer to the 11 entries listed on PDF page 40. Each entry in `sop.html` links to a standalone PDF in `documents/sop-appendices/`. The **Download PDF** link is also the source for its inline **Preview**, so both controls always use the same document. Only the selected appendix loads; the full SOP stays available.
+
+If the unit issues a new SOP, recheck its appendix index, titles, and page boundaries before replacing these PDFs. The current extracts span PDF pages 41–58 of the July 2026 SOP. Keep continuation pages together and compare the rendered pages to the source, since several forms and charts are scanned images. Include the extracted PDFs, `sop.css`, and updated `sop.html` and `resources.js` when publishing this feature.
+
+**Appendix 3-B exception:** The MIR preview and download use the supplied two-page, completed **Record of Counseling** example. The original file was copied unchanged to `documents/sop-appendices/appendix-3-b-mir-form.pdf` to preserve its form fields. When refreshing extracts, retain this replacement unless a new MIR file is supplied. The original Appendix 3-B remains on PDF pages 43–44 of the full SOP.
+
+**Appendix 3-C exception:** Keep the owner-supplied Special Request Chit Example in place when refreshing SOP extracts. Both controls use this unmodified PDF.

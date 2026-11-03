@@ -29,13 +29,19 @@
     return link;
   }
 
-  let disposePdfPreview = () => {};
+  // An appendix can be open alongside the full SOP. Only stop the worker
+  // belonging to the panel being closed, resized, or switched to another PDF.
+  const previewCleanups = new WeakMap();
+  function clearDocument(container) {
+    previewCleanups.get(container)?.();
+    previewCleanups.delete(container);
+    container.replaceChildren();
+  }
   // Touch-first devices avoid native PDF embeds, which may show only page one.
   const scrollingPdfLayout = window.matchMedia('(max-width: 760px), (hover: none) and (pointer: coarse)');
 
   function renderDocument(container, path, title, embed, emptyMessage = `${title} has not been added for this week.`) {
-    if (embed) disposePdfPreview();
-    container.replaceChildren();
+    clearDocument(container);
     const url = contentUrl(path);
     if (!url) {
       container.append(node('p', 'empty', emptyMessage));
@@ -55,7 +61,7 @@
       container.append(preview);
       let disposed = false;
       let destroyViewer = () => {};
-      disposePdfPreview = () => { disposed = true; destroyViewer(); };
+      previewCleanups.set(container, () => { disposed = true; destroyViewer(); });
       preview.textContent = 'Loading PDF…';
       import('./pdf-preview.js?v=3').then(({ mountPdfPreview }) => {
         if (!disposed) destroyViewer = mountPdfPreview(preview, url, title);
@@ -96,6 +102,35 @@
       'SOP PDF', true, 'The SOP document has not been added yet.');
     scrollingPdfLayout.addEventListener('change', displaySop);
     displaySop();
+  }
+
+  const appendixLibrary = document.getElementById('sop-appendices');
+  if (appendixLibrary) {
+    let activeAppendix = null;
+    for (const entry of appendixLibrary.querySelectorAll('.appendix-entry')) {
+      const toggle = entry.querySelector('button[aria-controls]');
+      const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+      const pdfUrl = entry.querySelector('a[download]').href;
+      const title = entry.querySelector('h3').textContent;
+      const appendix = {
+        render: () => renderDocument(panel, pdfUrl, title, true),
+        setOpen(open) {
+          panel.hidden = !open;
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.textContent = open ? 'Hide preview' : 'Preview';
+          toggle.setAttribute('aria-label', toggle.textContent + ': ' + title);
+          if (open) this.render();
+          else clearDocument(panel);
+        }
+      };
+      toggle.addEventListener('click', () => {
+        const opening = activeAppendix !== appendix;
+        activeAppendix?.setOpen(false);
+        activeAppendix = opening ? appendix : null;
+        activeAppendix?.setOpen(true);
+      });
+    }
+    scrollingPdfLayout.addEventListener('change', () => activeAppendix?.render());
   }
 
   const clubBoards = document.getElementById('club-boards');

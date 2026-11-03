@@ -1,0 +1,40 @@
+/* Keep the catalog usable independently of the much longer full SOP viewer. */
+.document-help a { color: var(--gold); }
+.appendix-jump { margin: 0 0 16px; }
+#sop-appendices { margin-block: 40px 12px; scroll-margin-top: 16px; }
+#sop-appendices > h2 {
+  margin: 8px 0;
+  font: 400 clamp(26px, 4vw, 34px)/1.3 'Libre Baskerville', Georgia, serif;
+}
+.appendix-intro { margin: 8px 0 22px; color: #bcc1c7; line-height: 1.6; }
+.appendix-list {
+  margin: 0;
+  padding: 0 22px;
+  list-style: none;
+  border: 1px solid #d7b77755;
+  border-radius: 4px;
+  background: #14212c;
+}
+.appendix-entry { scroll-margin-top: 16px; }
+.appendix-entry + .appendix-entry { border-top: 1px solid #d7b77733; }
+.appendix-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding: 20px 0;
+}
+.appendix-meta { margin: 0 0 6px; color: var(--gold); font-size: 13px; }
+.appendix-meta span { color: #bbc3ca; }
+.appendix-row h3 { margin: 0; font: 400 19px/1.45 'Libre Baskerville', Georgia, serif; }
+.appendix-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.appendix-actions button { background: transparent; font-family: inherit; cursor: pointer; }
+.appendix-actions [aria-expanded="true"] { background: #d7b77722; }
+.appendix-actions .resource-button { min-height: 44px; }
+.appendix-entry .document-panel { margin-bottom: 18px; }
+@media (max-width: 650px) {
+  .appendix-list { padding-inline: 14px; }
+  .appendix-row { align-items: start; flex-direction: column; }
+  .appendix-entry .document-panel { padding: 10px; }
+}

@@ -2,7 +2,7 @@
 // Keep previous weeks here so readers can select older PDFs.
 window.SITE_CONTENT = {
   // Update this timestamp when published website content changes, never on each visit.
-  lastUpdatedAt: '2026-11-02T17:22:09Z',
+  lastUpdatedAt: '2026-11-03T17:11:28+00:00',
   // Updates use { title, body, postedAt, expiresAt } with explicit timezone offsets.
   urgentUpdates: [],
   // Use only owner-supplied forms and requirements. A reference can replace a form URL.
