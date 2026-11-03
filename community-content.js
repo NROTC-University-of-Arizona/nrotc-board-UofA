@@ -141,10 +141,6 @@ window.COMMUNITY_CONTENT = {
         {
           "label": "Watchbill Fall 2026",
           "url": "https://docs.google.com/spreadsheets/u/0/d/1a3iYu_Fw5mgSKb3xvhg0SZTFfW2rr3S6FqqbpsFMMzY/edit"
-        },
-        {
-          "label": "Recall Roster",
-          "url": "https://docs.google.com/spreadsheets/d/1moq47yG8-bDB-K5VUZ0MWc-25F7KwL2fDt2iDZkI1VQ/edit?usp=sharing"
         }
       ]
     }

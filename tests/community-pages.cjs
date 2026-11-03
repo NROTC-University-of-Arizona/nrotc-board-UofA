@@ -53,7 +53,7 @@ const pages = ['index.html', 'clubs.html', 'ndt.html', 'marines.html', 'sep.html
       await bulletin.click();
       assert.equal(await bulletin.getAttribute('aria-expanded'), 'true');
       assert.equal(await page.locator('#quick-links-menu .bulletin-link-group').count(), 3);
-      assert.equal(await page.locator('#quick-links-menu .bulletin-resource-link').count(), 12);
+      assert.equal(await page.locator('#quick-links-menu .bulletin-resource-link').count(), 11);
       assert.deepEqual(await page.locator('#quick-links-menu h2').allTextContents(), ['Forms & Requests', 'Awards', 'Reference Resources']);
       assert.equal(await page.locator('#quick-links-menu .bulletin-full-link').getAttribute('href'), await page.evaluate(() => COMMUNITY_CONTENT.bulletinUrl));
       await page.keyboard.press('Tab');
